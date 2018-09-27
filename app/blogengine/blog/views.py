@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 # Create your views here.
 
 def posts_list(request):
-    return HttpResponse('<h1>Post List</h1>')
+    posts = ['post1', 'post2', 'post3', 'post']
+    return render(request, 'blog/index.html', context={'posts': posts})
