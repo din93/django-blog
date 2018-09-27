@@ -1,0 +1,13 @@
+# Работа с виртуальным окружением
+virtualenv venv
+source venv/Scripts/activate
+pip freeze > requirements.txt
+virtualenv venv
+source venv/Scripts/activate
+pip install -r requirements.txt
+
+# Проект
+pip install django
+django-admin startproject blogengine
+cd blogengine
+python manage.py startapp blog
