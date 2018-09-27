@@ -8,6 +8,11 @@ pip install -r requirements.txt
 
 # Проект
 pip install django
+mkdir app && cd app
 django-admin startproject blogengine
 cd blogengine
 python manage.py startapp blog
+
+/app/blogengine
+./manage.py migrate
+./manage.py runserver 8000
