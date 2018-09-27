@@ -16,3 +16,18 @@ python manage.py startapp blog
 /app/blogengine
 ./manage.py migrate
 ./manage.py runserver 8000
+#внесение изменений в БД
+./manage.py makemigrations
+./manage.py migrate
+#
+./manage.py shell
+from blog.models import Post
+p = Post(title='First Post', slug='first-post', body='First post body')
+p2 = Post.objects.create(title='Second Post', slug='second-post', body='Second post body')
+all = Post.objects.all()
+post = Post.objects.get(slug='second-post')
+post = Post.objects.get(slug__iexact='Second-post')
+post = Post.objects.filter(slug__contains='post')
+p3 = Post.objects.create(title='Post Number 3', slug='post-number-3', body='Post body Post body Post body')
+p4 = Post.objects.create(title='Post Number 4', slug='post-number-4', body='Post body Post body Post body Post body')
+p5 = Post.objects.create(title='Post Number 5', slug='post-number-5', body='Post body Post body Post body Post body Post body Post body')
