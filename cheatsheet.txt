@@ -37,3 +37,14 @@ post = Post.objects.get(slug='post-number-3')
 post.tags.add(tag)
 post.tags.all()
 tag.posts.all()
+
+from blog.forms import TagForm
+from blog.models import Tag
+tagform = TagForm({'title': 'Python', 'slug': 'python'})
+tagform.is_valid()
+tagform.cleaned_data
+tagform.errors
+tagmodel = Tag(title=tagform.cleaned_data['title'], slug=tagform.cleaned_data['slug'])
+tagmodel.save()
+tagmodel.id
+tagform = TagForm({'title': 'Framework', 'slug': 'framework'})
