@@ -12,7 +12,9 @@ class ObjectDetailMixin:
                 request,
                 self.template,
                 context={
-                        self.model.__name__.lower(): obj
+                        self.model.__name__.lower(): obj,
+                        'admin_object': obj,
+                        'detail': True
                     }
             )
 
