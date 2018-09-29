@@ -44,6 +44,30 @@
                 {% block content %}
                     No content yet
                 {% endblock %}
+
+                {% if is_paginated %}
+                <nav>
+                <ul class="pagination">
+                    <li class="page-item {% if not page.has_previous %}disabled{% endif %}">
+                        <a class="page-link" href="{{ prev_url }}" tabindex="-1">Previous</a>
+                    </li>
+                    {% for page_number in page.paginator.page_range %}
+                        {% if page.number == page_number %}
+                            <li class="page-item active">
+                                <a class="page-link" href="?page={{ page_number }}">{{ page_number }} <span class="sr-only">(current)</span></a>
+                            </li>
+                        {% elif page_number > page.number|add:-3 and page_number < page.number|add:3 %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    <li class="page-item {% if not page.has_next %}disabled{% endif %}">
+                        <a class="page-link" href="{{ next_url }}">Next</a>
+                    </li>
+                </ul>
+                </nav>
+                {% endif %}
             </div>
         </div>
     </div>
