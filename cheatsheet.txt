@@ -48,3 +48,6 @@ tagmodel = Tag(title=tagform.cleaned_data['title'], slug=tagform.cleaned_data['s
 tagmodel.save()
 tagmodel.id
 tagform = TagForm({'title': 'Framework', 'slug': 'framework'})
+
+./manage.py createsuperuser
+din/din@din.ru/din
